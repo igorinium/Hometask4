@@ -23,7 +23,6 @@ namespace Hometask4._3
                             iWhile++;
                         }
                     }
-
                     bool isUnique = true;
                     int[,] repeatsArray = new int[numbers.Length, 2];
                     int indexRepeatsArray = 0;

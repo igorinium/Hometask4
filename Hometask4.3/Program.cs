@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Hometask4._3
 {
@@ -12,19 +9,19 @@ namespace Hometask4._3
         {
             while (true)
             {
-                Console.WriteLine("Введите длинну массива");
+                Console.Write("Введите длинну массива: ");
                 bool isParseSuccess = int.TryParse(Console.ReadLine(), out int arrayLenght);
                 if (isParseSuccess && arrayLenght > 2)
                 {
-                    int[] numbers = new int[arrayLenght];
+                    double[] numbers = new double[arrayLenght];
                     for (int i = 0; i < arrayLenght; i++)
                     {
                         Console.Write($"Элемент №{i + 1} = ");
-                        numbers[i] = int.Parse(Console.ReadLine());
+                        numbers[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                     }
 
                     bool isUnique = true;
-                    int[,] repeatsArray = new int[numbers.Length, 2];
+                    double[,] repeatsArray = new double[numbers.Length, 2];
                     int indexRepeatsArray = 0;
                     for (int i = 0; i < numbers.Length; i++)
                     {

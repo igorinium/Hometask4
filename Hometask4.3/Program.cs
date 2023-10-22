@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 namespace Hometask4._3
 {
@@ -39,11 +38,11 @@ namespace Hometask4._3
                             }
 
                         }
+
                         if (hasAlready)
                         {
                             break;
                         }
-
                         else
                         {
                             for (int y = 0; y < arrayLenght; y++)
@@ -61,8 +60,8 @@ namespace Hometask4._3
                             isUnique = false;
                             indexRepeatsArray++;
                         }
-
                     }
+
                     if (isUnique)
                     {
                         Console.WriteLine("Данный массив не имеет повторяющихся элементов");
@@ -77,8 +76,10 @@ namespace Hometask4._3
                             }
                         }
                     }
+
                     break;
                 }
+
                 else
                 {
                     Console.WriteLine("Вы ввели неправильное число");

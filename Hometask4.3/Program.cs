@@ -13,15 +13,20 @@ namespace Hometask4._3
                 bool isParseSuccess = int.TryParse(Console.ReadLine(), out int arrayLenght);
                 if (isParseSuccess && arrayLenght > 2)
                 {
-                    double[] numbers = new double[arrayLenght];
-                    for (int i = 0; i < arrayLenght; i++)
+                    int[] numbers = new int[arrayLenght];
+                    int iWhile = 0;
+                    while (iWhile < arrayLenght)
                     {
-                        Console.Write($"Элемент №{i + 1} = ");
-                        numbers[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                        Console.Write($"Элемент №{iWhile + 1} = ");
+                        bool isIntParseSuccess = int.TryParse(Console.ReadLine(), out numbers[iWhile]);
+                        if (isIntParseSuccess)
+                        {
+                            iWhile++;
+                        }
                     }
 
                     bool isUnique = true;
-                    double[,] repeatsArray = new double[numbers.Length, 2];
+                    int[,] repeatsArray = new int[numbers.Length, 2];
                     int indexRepeatsArray = 0;
                     for (int i = 0; i < numbers.Length; i++)
                     {

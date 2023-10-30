@@ -24,61 +24,27 @@ namespace Hometask4._3
                         }
                     }
                     bool isUnique = true;
-                    int[,] repeatsArray = new int[numbers.Length, 2];
-                    int indexRepeatsArray = 0;
-                    for (int i = 0; i < numbers.Length; i++)
+                    Array.Sort(numbers);
+                    for (int i = 0; i < numbers.Length - 1;)
                     {
-                        bool hasAlready = false;
-                        for (int n = 0; n < numbers.Length; n++)
-                        {
-                            if (repeatsArray[n, 0] == numbers[i])
-                            {
-                                hasAlready = true;
-                            }
-
-                        }
-
-                        if (hasAlready)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            for (int y = 0; y < arrayLenght; y++)
-                            {
-                                if (i != y && numbers[i] == numbers[y])
-                                {
-                                    repeatsArray[indexRepeatsArray, 0] = numbers[i];
-                                    repeatsArray[indexRepeatsArray, 1]++;
-                                }
-                            }
-                        }
-
-                        if (repeatsArray[indexRepeatsArray, 1] > 0)
+                        int countRepeats = 1;
+                        while (numbers[i] == numbers[i + countRepeats])
                         {
                             isUnique = false;
-                            indexRepeatsArray++;
+                            countRepeats++;
                         }
+                        if (countRepeats != 1)
+                        {
+                            Console.WriteLine($"Элемент со значением {numbers[i]} повторяется {countRepeats} раз(а)");
+                        }
+                        i += countRepeats;
                     }
-
                     if (isUnique)
                     {
-                        Console.WriteLine("Данный массив не имеет повторяющихся элементов");
+                        Console.WriteLine("В массиве нет повторений");
                     }
-                    else
-                    {
-                        for (int i = 0; i < repeatsArray.GetLength(0); i++)
-                        {
-                            if (repeatsArray[i, 1] > 0)
-                            {
-                                Console.WriteLine($"Число {repeatsArray[i, 0]} встречается в массиве {repeatsArray[i, 1] + 1} раз(а)");
-                            }
-                        }
-                    }
-
                     break;
                 }
-
                 else
                 {
                     Console.WriteLine("Вы ввели неправильное число");

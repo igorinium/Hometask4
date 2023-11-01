@@ -8,6 +8,7 @@ namespace Hometask4._3
         {
             while (true)
             {
+                
                 Console.Write("Введите длинну массива: ");
                 bool isParseSuccess = int.TryParse(Console.ReadLine(), out int arrayLenght);
                 if (isParseSuccess && arrayLenght > 2)
@@ -28,14 +29,14 @@ namespace Hometask4._3
                     for (int i = 0; i < numbers.Length - 1;)
                     {
                         int countRepeats = 1;
-                        while (numbers[i] == numbers[i + countRepeats])
+                        while (i + countRepeats < numbers.Length && numbers[i] == numbers[i + countRepeats])
                         {
-                            isUnique = false;
                             countRepeats++;
                         }
                         if (countRepeats != 1)
                         {
                             Console.WriteLine($"Элемент со значением {numbers[i]} повторяется {countRepeats} раз(а)");
+                            isUnique = false;
                         }
                         i += countRepeats;
                     }
